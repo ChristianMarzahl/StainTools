@@ -13,4 +13,4 @@ def get_concentrations(I, stain_matrix, regularizer=0.01):
     :return:
     """
     OD = convert_RGB_to_OD(I).reshape((-1, 3))
-    return spams.lasso(X=OD.T, D=stain_matrix.T, mode=2, lambda1=regularizer, pos=True).toarray().T
+    return spams.lasso(X=OD.T, D=stain_matrix.T, mode=2, lambda1=regularizer, pos=True, numThreads=1).toarray().T
